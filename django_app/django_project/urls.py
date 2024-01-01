@@ -14,15 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include, reverse_lazy
+from django.views.generic.base import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 
 from upload.views import image_upload
+from algo_trading.views import *
 
 urlpatterns = [
-    path("", image_upload, name="upload"),
+    
     path('admin/', admin.site.urls),
+    path("", RedirectView.as_view(url=reverse_lazy('admin:index'))),
+    path('import-csv/', import_csv, name='import_csv'),
+    path('success/', success_page, name='success_page'),
+    path('accounts/login/', RedirectView.as_view(url=reverse_lazy('admin:index'))),
+    path('prediction_model/', prediction_model, name='prediction_model'),
 ]
 
 if bool(settings.DEBUG):
