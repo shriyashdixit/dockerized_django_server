@@ -20,10 +20,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from upload.views import image_upload
-from algo_trading.views import *
+from algo_trading.views import import_csv, success_page, prediction_model
 
 urlpatterns = [
-    
     path('admin/', admin.site.urls),
     path("", RedirectView.as_view(url=reverse_lazy('admin:index'))),
     path('import-csv/', import_csv, name='import_csv'),

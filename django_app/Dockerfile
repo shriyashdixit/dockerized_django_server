@@ -13,6 +13,9 @@ RUN apt-get update && apt-get install -y netcat
 
 # install dependencies
 RUN pip install --upgrade pip
+RUN pip install flake8==6.0.0
+COPY . /usr/src/app/
+RUN flake8 --ignore=E501,F401 .
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 

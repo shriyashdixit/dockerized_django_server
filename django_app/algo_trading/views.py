@@ -5,6 +5,7 @@ import csv
 from django.contrib.auth.decorators import login_required
 from .stratergies import Stratergy
 
+
 @login_required
 def import_csv(request):
     if request.method == 'POST':
@@ -28,9 +29,11 @@ def import_csv(request):
 
     return render(request, 'import.html', {'form': form})
 
+
 @login_required
 def success_page(request):
     return render(request, 'success.html')
+
 
 def prediction_model(request):
     historical_data = HistoricalData.objects.all()
