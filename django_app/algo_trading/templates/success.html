@@ -1,3 +1,14 @@
 {% extends 'admin/base_site.html' %}
 
-<p>success</p>
+{% block content %}
+{% csrf_token %}
+<div>
+
+
+
+
+<p>{{context}}</p>
+
+
+</div>
+{% endblock %}

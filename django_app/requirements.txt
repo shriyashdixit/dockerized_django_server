@@ -1,5 +1,10 @@
+celery==5.1.2
+datetime
 Django==4.2.3
 gunicorn==21.2.0
 numpy
 psycopg2-binary==2.9.6
 pandas
+redis==3.5.3
+requests
+yfinance

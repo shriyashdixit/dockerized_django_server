@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from upload.views import image_upload
-from algo_trading.views import import_csv, success_page, prediction_model
+from algo_trading.views import import_csv, success_page, prediction_model, get_nse_historical_data, live_data
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +29,8 @@ urlpatterns = [
     path('success/', success_page, name='success_page'),
     path('accounts/login/', RedirectView.as_view(url=reverse_lazy('admin:index'))),
     path('prediction_model/', prediction_model, name='prediction_model'),
+    path('get_nse_historical_data/', get_nse_historical_data, name='get_nse_historical_data'),
+    path('live_data/', live_data, name='live_data'),
 ]
 
 if bool(settings.DEBUG):
