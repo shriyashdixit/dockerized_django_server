@@ -19,7 +19,7 @@ from django.views.generic.base import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 
-from upload.views import image_upload
+from upload.views import image_upload, chatbot, env
 from algo_trading.views import import_csv, success_page, prediction_model
 
 urlpatterns = [
@@ -29,6 +29,8 @@ urlpatterns = [
     path('success/', success_page, name='success_page'),
     path('accounts/login/', RedirectView.as_view(url=reverse_lazy('admin:index'))),
     path('prediction_model/', prediction_model, name='prediction_model'),
+    path('chatbot', chatbot, name='chatbot'),
+    path('env', env, name='env'),
 ]
 
 if bool(settings.DEBUG):

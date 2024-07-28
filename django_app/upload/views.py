@@ -15,3 +15,9 @@ def image_upload(request):
             "image_url": image_url
         })
     return render(request, "upload.html")
+
+def chatbot(request):
+    return render(request, 'chatbot.html')
+
+def env(request):
+    return render(request, 'temporary_webpage.html')
