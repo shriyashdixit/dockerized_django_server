@@ -23,3 +23,7 @@ def chatbot(request):
 
 def env(request):
     return render(request, 'temporary_webpage.html')
+
+
+def homepage(request):
+    return render(request, 'homepage.html')

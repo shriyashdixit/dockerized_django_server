@@ -19,12 +19,13 @@ from django.views.generic.base import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 
-from upload.views import image_upload, chatbot, env
+from upload.views import image_upload, chatbot, env, homepage
 from algo_trading.views import import_csv, success_page, prediction_model
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", RedirectView.as_view(url=reverse_lazy('admin:index'))),
+    path("", homepage, name='homepage'),
+    # path("", RedirectView.as_view(url=reverse_lazy('admin:index'))),
     path('import-csv/', import_csv, name='import_csv'),
     path('success/', success_page, name='success_page'),
     path('accounts/login/', RedirectView.as_view(url=reverse_lazy('admin:index'))),
