@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Tutorials</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+.w3-main {
+  margin-left: 250px; /* Width of the sidebar */
+  margin-top: 50px; /* Adjust based on navbar height */
+  padding: 20px; /* Optional padding */
+  min-height: calc(100vh - 50px - 100px); /* Adjust the height calculation */
+  }
+
+  /* Sticky footer style */
+.footer {
+    position: relative; /* Changed to relative for sticky positioning */
+    margin-top: auto; /* Pushes footer to bottom if page height is short */
+    width: 100%;
+    background-color: #333; /* Background color of the footer */
+    color: #fff; /* Footer text color */
+    padding: 10px 0; /* Padding for spacing inside the footer */
+}
+.custom-list {
+            list-style-type: none; /* Removes default bullets or numbers */
+            padding-left: 0; /* Removes default padding */
+        }
+.custom-list li::before {
+            content: ". "; /* Adds the dot before each item */
+            color: black; /* Sets the color of the dot */
+        }
+.code-container {
+            position: relative;
+            display: inline-block;
+        }
+.code {
+            display: block;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre;
+        }
+.copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+.copy-button:hover {
+            background: #0056b3;
+        }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-theme-l1">Tutorials</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About US</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Values</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">News</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contac us</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Clients</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Partners</a>
+  </div>
+</div>
+
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+
+  <!-- Python Basics with collapsible sub-sections -->
+  <button class="w3-bar-item w3-button w3-hover-black" onclick="toggleSubMenu('pythonBasicsSub')">Python Basics</button>
+  <div id="pythonBasicsSub" class="w3-hide w3-animate-left">
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('introPython')">Introduction to Python</a>
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('pythonSyntax')">Python Syntax and Basics</a>
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('workingWithData')">Working with Data</a>
+  </div>
+
+  <!-- Advanced Python with collapsible sub-sections -->
+  <button class="w3-bar-item w3-button w3-hover-black" onclick="toggleSubMenu('advancedPythonSub')">Advanced Python</button>
+  <div id="advancedPythonSub" class="w3-hide w3-animate-left">
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('oopPython')">OOP in Python</a>
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('errorHandling')">Error Handling and Exceptions</a>
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('decoratorsGenerators')">Decorators and Generators</a>
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('concurrencyPython')">Concurrency in Python</a>
+  </div>
+
+  <!-- Django Framework with collapsible sub-sections -->
+  <button class="w3-bar-item w3-button w3-hover-black" onclick="toggleSubMenu('djangoSub')">Django Framework</button>
+  <div id="djangoSub" class="w3-hide w3-animate-left">
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('introDjango')">Introduction to Django</a>
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('workingWithModels')">Working with Models</a>
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('viewsTemplates')">Views and Templates</a>
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('formsValidation')">Forms and Validation</a>
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('authDjango')">Authentication and Authorization</a>
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('deployDjango')">Deploying Django Applications</a>
+  </div>
+
+  <!-- SQL and Databases with collapsible sub-sections -->
+  <button class="w3-bar-item w3-button w3-hover-black" onclick="toggleSubMenu('sqlSub')">SQL and Databases</button>
+  <div id="sqlSub" class="w3-hide w3-animate-left">
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('sqlBasics')">SQL Basics</a>
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('advancedSql')">Advanced SQL</a>
+    <a class="w3-bar-item w3-button w3-hover-light-grey" href="#" onclick="showContent('dbIntegration')">Database Integration with Python</a>
+  </div>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+  <!-- Content Sections -->
+  <div id="introLandingPage" class="content-section w3-container" style="display:block">
+    <h1 class="w3-text-teal">Landing Page</h1>
+    <p>Please navigate from sidebar.</p>
+  </div>
+
+  <div id="introPython" class="content-section w3-container" style="display:none">
+    <h1 class="w3-text-teal">Introduction to Python</h1>
+    <p>Python is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages in the world due to its versatility and ease of use.</p>
+    <h2 class="w3-text-teal">Key Features of Python</h2>
+    <ol>
+      <li>Readable and Simple Syntax: Python's syntax is designed to be intuitive and clear, making it easy to read and write. This helps new programmers learn quickly and allows experienced developers to write clean and maintainable code.</li>
+      <li>Interpreted Language: Python is an interpreted language, which means that code is executed line-by-line at runtime. This allows for quick testing and debugging.</li>
+      <li>Dynamic Typing: Python uses dynamic typing, meaning that variables do not need explicit declaration of their type. This makes Python flexible and reduces the amount of code required.</li>
+      <li>Versatile and Powerful: Python supports multiple programming paradigms, including procedural, object-oriented, and functional programming. It is used in a wide range of applications, from web development to data analysis, artificial intelligence, scientific computing, and more.</li>
+      <li>Extensive Standard Library: Python comes with a rich standard library that provides modules and functions for various tasks, including file handling, networking, and data manipulation. This reduces the need to write code from scratch.</li>
+      <li>Large Community and Ecosystem: Python has a vibrant community of developers who contribute to a vast ecosystem of third-party libraries and frameworks. This includes popular tools like Django for web development, NumPy and pandas for data science, and TensorFlow for machine learning.</li>
+    </ol>
+    <h2 class="w3-text-teal">Getting Started</h2>
+    <p>To begin programming in Python, you'll need to install the Python interpreter from the official Python website. You can write and run Python code in various environments, such as:</p>
+    <ol>
+      <li>IDEs and Text Editors: Integrated Development Environments (IDEs) like PyCharm or VS Code provide features like code completion and debugging. Text editors like Sublime Text or Atom can also be used for writing Python code.</li>
+      <li>Interactive Shell: Python's interactive shell allows you to execute code snippets and test ideas quickly.</li>
+      <li>Jupyter Notebooks: Jupyter Notebooks are popular for data analysis and visualization. They provide an interactive environment where you can combine code, text, and visualizations.</li>
+    </ol>
+    <p>Python's simple syntax and powerful features make it a great choice for both beginners and experienced developers. Whether you're building web applications, analyzing data, or exploring new technologies, Python provides the tools and flexibility to help you achieve your goals.</p>
+  </div>
+
+  <div id="pythonSyntax" class="content-section w3-container" style="display:none">
+    <h1 class="w3-text-teal">Python Syntax and Basics</h1>
+    <p>Python is renowned for its clean and readable syntax, which makes it an excellent choice for both novice and experienced programmers. Understanding Python's syntax and basic constructs is crucial for writing effective code. This section covers the fundamental aspects of Python syntax and basic programming concepts.</p>
+    <h2 class="w3-text-teal">Basic Syntax</h2>
+    <ol>
+      <li>Comments:</li>
+      <ul class="custom-list">
+        <li>Single-line comments begin with a #.</li>
+        <li>Multi-line comments are enclosed in triple quotes (''' or """).</li>
+      </ul>
+      <div class="code-container">
+        <button class="copy-button" onclick="copyCode()">Copy</button>
+        <pre class="code" id="code">
+# This is a single-line comment
+
+"""
+This is a
+multi-line comment
+"""
+        </pre>
+    </div>
+    <li>Indentation:</li>
+    <ul class="custom-list">
+      <li>Python uses indentation (whitespace) to define the structure of the code, such as loops, conditionals, and function definitions. Consistent indentation is crucial for correct execution.</li>
+    </ul>
+    <div class="code-container">
+      <button class="copy-button" onclick="copyCode()">Copy</button>
+      <pre class="code" id="code">
+if True:
+    print("This is indented")
+      </pre>
+    </div>
+ 
+    <li>Variables:</li>
+    <ul class="custom-list">
+      <li>Variables are used to store data. Python does not require explicit declaration of variable types, and variables are dynamically typed.</li>
+    </ul>
+    <div class="code-container">
+      <button class="copy-button" onclick="copyCode()">Copy</button>
+      <pre class="code" id="code">
+x = 10
+name = "Alice"
+      </pre>
+    </div>
+
+    <li>Data Types:</li>
+    <ul class="custom-list">
+      <li>Common data types include integers (int), floating-point numbers (float), strings (str), and booleans (bool).</li>
+    </ul>
+    <div class="code-container">
+      <button class="copy-button" onclick="copyCode()">Copy</button>
+      <pre class="code" id="code">
+number = 5          # int
+pi = 3.14           # float
+greeting = "Hello" # str
+is_active = True   # bool
+        
+      </pre>
+    </div>
+    </ol>
+
+
+
+
+
+
+
+
+
+
+
+
+    <h2 class="w3-text-teal">Basic Operations</h2>
+    <ol>
+      <li>Arithmetic Operations:</li>
+      <ul class="custom-list">
+        <li>Python supports standard arithmetic operations like addition, subtraction, multiplication, and division.</li>
+      </ul>
+      <div class="code-container">
+        <button class="copy-button" onclick="copyCode()">Copy</button>
+        <pre class="code" id="code">
+a = 10
+b = 5
+sum = a + b        # Addition
+difference = a - b # Subtraction
+product = a * b    # Multiplication
+quotient = a / b   # Division
+          
+        </pre>
+    </div>
+    <li>Comparison Operations:</li>
+    <ul class="custom-list">
+      <li>Comparison operators return boolean values (True or False) and are used to compare values.</li>
+    </ul>
+    <div class="code-container">
+      <button class="copy-button" onclick="copyCode()">Copy</button>
+      <pre class="code" id="code">
+x = 10
+y = 20
+print(x == y)  # Equal to
+print(x != y)  # Not equal to
+print(x < y)   # Less than
+print(x > y)   # Greater than
+        
+      </pre>
+    </div>
+ 
+    <li>Logical Operations:</li>
+    <ul class="custom-list">
+      <li>Logical operators combine boolean values and expressions.</li>
+    </ul>
+    <div class="code-container">
+      <button class="copy-button" onclick="copyCode()">Copy</button>
+      <pre class="code" id="code">
+a = True
+b = False
+print(a and b)  # Logical AND
+print(a or b)   # Logical OR
+print(not a)    # Logical NOT
+      </pre>
+    </div>
+    </ol>
+
+
+
+
+
+
+
+
+
+
+
+    <h2 class="w3-text-teal">Control Structures</h2>
+    <ol>
+      <li>Conditional Statements:</li>
+      <ul class="custom-list">
+        <li>Python uses if, elif, and else to make decisions based on conditions.</li>
+      </ul>
+      <div class="code-container">
+        <button class="copy-button" onclick="copyCode()">Copy</button>
+        <pre class="code" id="code">
+x = 10
+if x > 0:
+    print("Positive")
+elif x == 0:
+    print("Zero")
+else:
+    print("Negative")
+        </pre>
+    </div>
+    <li>Loops:</li>
+    <ul class="custom-list">
+      <li>for loops and while loops are used to repeat tasks.</li>
+    </ul>
+    <div class="code-container">
+      <button class="copy-button" onclick="copyCode()">Copy</button>
+      <pre class="code" id="code">
+# For loop
+for i in range(5):
+    print(i)
+
+# While loop
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+      </pre>
+    </div>
+    </ol>
+
+
+
+
+
+
+    <h2 class="w3-text-teal">Functions</h2>
+    <ol>
+      <li>Defining Functions:</li>
+      <ul class="custom-list">
+        <li>Functions are defined using the def keyword and can take parameters and return values.</li>
+      </ul>
+      <div class="code-container">
+        <button class="copy-button" onclick="copyCode()">Copy</button>
+        <pre class="code" id="code">
+def greet(name):
+    return f"Hello, {name}!"
+
+message = greet("Alice")
+print(message)
+        </pre>
+    </div>
+    <li>Calling Functions:</li>
+    <ul class="custom-list">
+      <li>Functions are called by their name followed by parentheses.</li>
+    </ul>
+    <div class="code-container">
+      <button class="copy-button" onclick="copyCode()">Copy</button>
+      <pre class="code" id="code">
+greet("Bob")
+      </pre>
+    </div>
+    </ol>
+    <h2 class="w3-text-teal">Conclusion</h2>
+    <p>Python's syntax emphasizes readability and simplicity. Understanding these basic constructs—such as variables, data types, operations, control structures, and functions—forms the foundation for more advanced programming in Python. Mastery of these fundamentals will help you write clear, efficient, and effective Python code.</p>
+  </div>
+
+  <div id="workingWithData" class="content-section w3-container" style="display:none">
+    <h1 class="w3-text-teal">Working with Data</h1>
+    <p>Learn about lists, tuples, dictionaries, and how to manipulate data effectively in Python...</p>
+  </div>
+
+  <!-- Add similar content sections for other topics -->
+
+
+
+<!-- END MAIN -->
+</div>
+<footer id="myFooter">
+  <div class="w3-container w3-theme-l2" style="text-align: center;">
+    <h4>Footer</h4>
+  </div>
+
+  <div class="w3-container w3-theme-l1" style="text-align: center;">
+    <p>Powered by <a href="https://www.compay24.com" target="_blank">Tutorials</a></p>
+  </div>
+</footer>
+
+<script>
+ // JavaScript to handle sub-menu toggling
+ function toggleSubMenu(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else {
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
+
+  // Get the Sidebar
+  var mySidebar = document.getElementById("mySidebar");
+
+  // Get the DIV with overlay effect
+  var overlayBg = document.getElementById("myOverlay");
+
+  // Toggle between showing and hiding the sidebar, and add overlay effect
+  function w3_open() {
+    if (mySidebar.style.display === 'block') {
+      mySidebar.style.display = 'none';
+      overlayBg.style.display = "none";
+    } else {
+      mySidebar.style.display = 'block';
+      overlayBg.style.display = "block";
+    }
+  }
+
+  // Close the sidebar with the close button
+  function w3_close() {
+    mySidebar.style.display = "none";
+    overlayBg.style.display = "none";
+  }
+
+  // Show the content based on sidebar link click
+  function showContent(contentId) {
+    // Hide all content sections
+    var sections = document.getElementsByClassName('content-section');
+    for (var i = 0; i < sections.length; i++) {
+      sections[i].style.display = 'none';
+    }
+    // Show the selected content section
+    document.getElementById(contentId).style.display = 'block';
+  }
+  function copyCode() {
+            // Get the code element
+            const codeElement = document.getElementById('code');
+            
+            // Create a temporary textarea to hold the code
+            const textArea = document.createElement('textarea');
+            textArea.value = codeElement.textContent;
+            document.body.appendChild(textArea);
+            
+            // Select and copy the text
+            textArea.select();
+            document.execCommand('copy');
+            
+            // Remove the temporary textarea
+            document.body.removeChild(textArea);
+            
+            // Optional: Provide feedback to the user
+            alert('Code copied to clipboard!');
+        }
+</script>
+
+</body>
+</html>

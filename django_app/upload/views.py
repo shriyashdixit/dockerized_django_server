@@ -26,4 +26,4 @@ def env(request):
 
 
 def homepage(request):
-    return render(request, 'homepage.html')
+    return render(request, 'tutorials_webpage.html')
